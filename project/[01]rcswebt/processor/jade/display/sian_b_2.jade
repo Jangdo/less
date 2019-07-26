@@ -1,0 +1,169 @@
+//output:../../../publish/html/display/sian_b_2.html
+
+include ../include/jadeUtil.jade
+doctype html
+html(lang='ko')
+  include ../include/head.jade
+    +linkRel('stylesheet', 'text/css', '../css/sian_b.css', 'all')
+  body
+    include ../include/skipNavi.jade
+    .header_wrap
+      header.header
+        .inner_header
+          h1.logo
+            a(href="javascript:void(0);") 
+              img(src="../images/dummy/logo_webtemp.png" alt="RCS WEB Template")
+          nav
+            ul
+              li.node1: a(href="javascript:void(0);") 서비스 관리
+              li.node1: a(href="javascript:void(0);") 메시지 관리
+              li.node1: a(href="javascript:void(0);") 발송통계
+              li.node1: a(href="javascript:void(0);") 공지사항
+              li.node1: a(href="javascript:void(0);") 관리
+            .util_wrap
+              a(href="javascript:void(0);").btn_user 회원정보
+              
+    .container
+      article#content.content
+        .emulator_wrap
+          .emulator_head
+            h2.title 메세지 발송
+            a(href="javascript:void(0);").btn.link
+              span 메세지보관함 
+          .emulator_cont
+              .item_bundle
+                strong.tit_bundle
+                  | 브랜드 / 양식
+                .cont_bundle
+                  .cont_flex_bundle
+                    span.custom_select
+                      select(name="")
+                        option(value="") 브랜드명을 선택해주세요.
+                        -for(i=1; i < 10; i++)
+                          option(value="") Brand00#{i} (브랜드명)
+                    span.custom_select
+                      select(name="")
+                        option(value="") 양식을 선택해주세요.
+                        -for(i=1; i < 10; i++)
+                          option(value="") Tmplt00#{i} (템플릿명)
+              .tab_wrap
+                ul.tab_nav
+                  li: a(href="javascript:void(0);") 메세지 작성
+                  li.active: a(href="javascript:void(0);") 발송설정
+              .tab_container
+                .tab_content
+                .tab_content.active
+                  h2.blind 발송설정 탭
+                  .wrap_bundle
+                    .item_bundle
+                      strong.tit_bundle
+                        | 받는사람
+                      .cont_bundle
+                        .cont_block_bundle
+                          .cont_flex_bundle
+                            .btn_wrap.align_left.half_width
+                              a(href="javascript:void(0);").btn.sml.gray 
+                                span 주소록
+                              a(href="javascript:void(0);" data-layer="layer02").btn.sml.bd_gray
+                                span 대량등록
+                            .btn_wrap.align_right.half_width
+                              a(href="javascript:void(0);" data-layer="layer01").btn_guide
+                                span 도움말
+                        .cont_block_bundle
+                          .input_btn_bundle
+                            span.custom_textarea
+                              textarea(rows="3" pattern="[0-9]+([-\,][0-9]+)?" placeholder="휴대폰번호 직접입력 \n엑셀 메모장 붙여넣기 가능" onKeyup="inputPhoneNumber(this);" ).input_add
+                            a(href="javascript:void(0);").btn.sml.blue
+                              span 추가
+                        .cont_block_bundle
+                          .select_list
+                            ul
+                              li.selected
+                                span 010-1234-1234
+                                a(href="javascript:void(0);").btn_delete 삭제
+                              li
+                                span 010-1234-1234
+                                a(href="javascript:void(0);").btn_delete 삭제
+                              li
+                                span 010-1234-1234
+                                a(href="javascript:void(0);").btn_delete 삭제
+                              li
+                                span 010-1234-1234
+                                a(href="javascript:void(0);").btn_delete 삭제
+                              li
+                                span 010-1234-1234
+                                a(href="javascript:void(0);").btn_delete 삭제
+                              li
+                                span 010-1234-1234
+                                a(href="javascript:void(0);").btn_delete 삭제
+                              li.group
+                                span 그룹명 (인원)명
+                                a(href="javascript:void(0);").btn_delete 삭제
+                              li.register_mass
+                                span 대량등록(상위 10명)
+                                a(href="javascript:void(0);").btn_delete 삭제
+                        .cont_block_bundle  
+                          .cont_flex_bundle
+                            .select_list_length.align_left.half_width
+                              p 총 <span class="count">0</span>명
+                            .btn_wrap.align_right.half_width
+                              a(href="javascript:void(0);").btn_delete
+                                span 전체삭제
+                    .item_bundle
+                      strong.tit_bundle
+                        | 발신번호
+                      .cont_bundle
+                        span.custom_select.full_width
+                          select(name="")
+                            option(value="") 선택
+                            option(value="") 010-0000-0000
+                    .item_bundle
+                      strong.tit_bundle
+                        | 발송일자
+                      .cont_bundle
+                        .cont_block_bundle
+                          span.custom_radio
+                            input(type="radio" name="sendForm" id="sendForm01" checked)
+                            label(for="sendForm01") 즉시발송
+                          span.custom_radio
+                            input(type="radio" name="sendForm" id="sendForm02")
+                            label(for="sendForm02") 예약발송
+                        .cont_block_bundle
+                          .cont_flex_bundle
+                            span.custom_input.icon_date
+                              input(type="text" readonly).datepicker
+                            span.custom_select
+                              select
+                                -for(i=0; i < 24; i++)
+                                  option(value="") #{i} 시
+                            span.custom_select
+                              select
+                                -for(i=0; i < 60; i++)
+                                  option(value="") #{i} 분
+        .preview_wrap
+          strong.blind 미리보기
+          .view_area
+            .view_cont
+              p.ad_top_text
+                | (광고) 브랜드명
+              .scroll_area
+                .img_area
+                  img(src="../images/dummy/img_placeholder.png" alt="%게시물제목%")
+                .desc_area
+                  .inner_desc
+                    h4.title 타이틀영역
+                    p.text 내용영역
+                  .btn_wrap
+                    a(href="javascript:void(0);").btn.mid 버튼 1
+                    a(href="javascript:void(0);").btn.mid 버튼2
+              p.ad_bottom_text
+                | 무료 수신거부 : 
+          .btn_wrap
+            a(href="javascript:void(0);").btn.big.bd_blue
+              span 저장
+            a(href="javascript:void(0);").btn.big.bd_blue
+              span 테스트 발송
+            a(href="javascript:void(0);").btn.big.blue.full_width
+              span 발송요청
+              
+    .footer_wrap(style="height:500px")

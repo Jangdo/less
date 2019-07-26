@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <!--output:../../../publish/html/include/head.html-->
+  <head>
+      <title>RCS</title>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta name="description" content="">
+      <link rel="stylesheet" type="text/css" href="../css/layout.css" media="all">
+      <link rel="stylesheet" type="text/css" href="../css/content.css" media="all">
+      <script type="text/javascript" src="../js/vue.js"></script>
+  </head>
+    <link rel="stylesheet" type="text/css" href="../css/main_c.css" media="all">
+  <body>
+    <!--output:../../../publish/html/include/skipNavi.html-->
+    <div class="skip_navi"><a href="#content">본문바로가기</a></div>
+    <div class="header_wrap">
+      <header class="header">
+        <h1 class="logo"><a href="javascript:void(0);">로고</a></h1>
+        <nav>
+          <ul class="nav_list">
+            <li><a href="javascript:void(0);" @click="isHovering = !isHovering">서비스 소개</a>
+              <transition>
+                <div v-show="isHovering" class="sub_menu">
+                  <ul>
+                    <li><a href="javascript:void(0);">RCS 서비스</a></li>
+                    <li><a href="javascript:void(0);">RCS 서비스 특징</a></li>
+                    <li><a href="javascript:void(0);">상품안내</a></li>
+                    <li><a href="javascript:void(0);">사용 가이드</a></li>
+                  </ul>
+                </div>
+              </transition>
+            </li>
+            <li><a href="javascript:void(0);" @click="isHovering = !isHovering">서비스 관리</a>
+              <transition>
+                <div v-show="isHovering" class="sub_menu">
+                  <ul>
+                    <li><a href="javascript:void(0);">RCS 서비스</a></li>
+                    <li><a href="javascript:void(0);">RCS 서비스 특징</a></li>
+                    <li><a href="javascript:void(0);">상품안내</a></li>
+                    <li><a href="javascript:void(0);">사용 가이드</a></li>
+                  </ul>
+                </div>
+              </transition>
+            </li>
+            <li><a href="javascript:void(0);" @click="isHovering = !isHovering">고객센터</a>
+              <transition>
+                <div v-show="isHovering" class="sub_menu">
+                  <ul>
+                    <li><a href="javascript:void(0);">RCS 서비스</a></li>
+                    <li><a href="javascript:void(0);">RCS 서비스 특징</a></li>
+                    <li><a href="javascript:void(0);">상품안내</a></li>
+                    <li><a href="javascript:void(0);">사용 가이드</a></li>
+                  </ul>
+                </div>
+              </transition>
+            </li>
+          </ul>
+          <div class="gnb_wrap"><a href="javascript:void(0);">문의하기</a><a href="javascript:void(0);">로그인</a></div>
+        </nav>
+      </header>
+    </div>
+    <script>
+      var headerWrap = new Vue({
+        el: ".header_wrap",
+        data:{
+          isHovering: false,
+        },
+      });
+    </script>
+  </body>
+</html>

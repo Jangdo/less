@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>웹템플릿 Webpublishing List</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+      body {margin:0;padding:0;min-width:1280px;}
+      a {text-decoration:none;color:#666;}
+      a:hover {text-decoration:underline;}
+      h1 { margin:0;padding:10px;font-size:16px;background:#c55;color:#fff;position:relative;}
+      h1 > div.btnArea {position:absolute;top:8px;right:10px;}
+      h1 a {display:inline-block;font-size:12px;padding:5px 16px;font-weight:bold;color:#666;background:#fff;border-radius:4px;vertical-align:middle;margin-left:5px;}
+      h1 a:hover {text-decoration:none;color:red;}
+      table {width:100%;margin-top:0;border-collapse:collapse;border-top:1px solid #e97;}
+      th, td {padding:5px;font-size:14px;border-bottom:1px solid #ddd;border-left:1px solid #ddd;border-right:1px solid #ddd;}
+      th {background:#ffe;color:#333;}
+      td {color:#666;}
+      tr > th:first-child {border-left:0;}
+      tr > th:last-child {border-right:0;}
+      tr > td:first-child {border-left:0;}
+      tr > td:last-child {border-right:0;}
+      td.number {text-align:center;}
+    </style>
+    <script type="text/javascript" src="./publish/temp/jquery-2.2.4.min.js"></script>
+  </head>
+  <body>
+    <h1>웹템플릿
+      <div class="btnArea"><a href="guide.html" target="_blank">Guide</a></div>
+    </h1>
+    <table>
+      <colgroup>
+        <col style="width:5%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:auto">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+      </colgroup>
+      <thead></thead>
+      <tbody></tbody>
+    </table>
+    <script type="text/javascript">
+      var number = 1;
+      var idx = {
+        thGrid: function(no, category, depths, depthsTwo, id, url, start, end, writer, modify, notice) {
+          var trContents = '<tr><th>' + no + '</th><th>' + category + '</th><th>' + depths + '</th><th>' + depthsTwo + '</th><th>' + id + '</th><th>' + url + '</th><th>' + start +'</th><th>' + end +'</th><th>' + writer +'</th><th>' + modify +'</th><th>' + notice +'</th>';
+          $('thead').append(trContents);
+        },
+        tdGrid: function(category, depths, depthsTwo, id, url, start, end, writer, notice, modify, status) {
+          switch (status) {
+            case 'ing':
+              var trContents = '<tr style="background:#fff;"><td class="number">' + (number++) + '</td><td>' + category + '</td><td>' + depths + '</td><td>' + depthsTwo + '</td><td>' + id + '</td><td><a href=' + url + ' target="_blank">' + url + '</a></td><td>' + start +'</td><td>' + end +'</td><td>' + writer +'</td><td>' + modify +'</td><td>' + notice +'</td>';
+              break;
+            case 'html':
+              var trContents = '<tr style="background:#ffc;"><td class="number">' + (number++) + '</td><td>' + category + '</td><td>' + depths + '</td><td>' + depthsTwo + '</td><td>' + id + '</td><td><a href=' + url + ' target="_blank">' + url + '</a></td><td>' + start +'</td><td>' + end +'</td><td>' + writer +'</td><td>' + modify +'</td><td>' + notice +'</td>';
+              break;
+            case 'complete':
+              var trContents = '<tr style="background:#cfd;"><td class="number">' + (number++) + '</td><td>' + category + '</td><td>' + depths + '</td><td>' + depthsTwo + '</td><td>' + id + '</td><td><a href=' + url + ' target="_blank">' + url + '</a></td><td>' + start +'</td><td>' + end +'</td><td>' + writer +'</td><td>' + modify +'</td><td>' + notice +'</td>';
+              break;
+            default: break;
+          }
+      
+          $('tbody').append(trContents);
+        }
+      }
+      
+      idx.thGrid('번호', '카테고리(1depths)', '2depths', '3depths', '화면ID', 'URL', '시작일', '종료일', '작업자', '수정사항', '비고');
+      
+      idx.tdGrid('Main', '메인', '', '', './publish/html/main/main.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '', 'Message_01', './publish/html/display/Message_01.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '승인형 Cell', 'Message_02_001', './publish/html/display/Message_02_001.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '메시지 보관함 팝업', 'Message_07', './publish/html/display/Message_07.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '테스트 발송 팝업', 'Message_08', './publish/html/display/Message_08.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '주소록(그룹)팝업', 'Message_09_001', './publish/html/display/Message_09_001.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '주소록(전체) 팝업', 'Message_09_002', './publish/html/display/Message_09_002.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '대량등록(정상) 팝업', 'Message_010_001', './publish/html/display/Message_010_001.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '대량등록(오류) 팝업', 'Message_010_002', './publish/html/display/Message_010_002.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '승인형 Cell', 'Message_02_002', './publish/html/display/Message_02_002.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '미승인형 Free', 'Message_03', './publish/html/display/Message_03.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '포맷 Standalone', 'Message_04', './publish/html/display/Message_04.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '파일 업로드 팝업', 'Message_11_001', './publish/html/display/Message_11_001.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '파일 업로드 팝업', 'Message_11_002', './publish/html/display/Message_11_002.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '포맷 Horizontal Standalone', 'Message_05', './publish/html/display/Message_05.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '포맷 Carousel', 'Message_06', './publish/html/display/Message_06.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '보낸메시지함', 'Message_12', './publish/html/display/Message_12.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '보낸 메시지함 상세', 'Message_13', './publish/html/display/Message_13.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '주소록관리(그룹)', 'Message_14_001', './publish/html/display/Message_14_001.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '주소록관리(전체)', 'Message_014_002', './publish/html/display/Message_014_002.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '주소록 상세 팝업', 'Message_15', './publish/html/display/Message_15.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '개별등록 팝업', 'Message_16', './publish/html/display/Message_16.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '주소록 대량등록(정상) 팝업', 'Message_17_001', './publish/html/display/Message_17_001.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '주소록 대량등록(오류) 팝업', 'Message_17_002', './publish/html/display/Message_17_002.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '그룹 추가/수정 팝업', 'Message_18', './publish/html/display/Message_18.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('메시지 관리', '메시지 발송', '스팸번호관리', 'Message_19', './publish/html/display/Message_19.html', '', '', '', '', '', 'ing');
+      
+      idx.tdGrid('Main', '메인 완성된 html', '', '', 'URL/temp.html', '', '', '', '', '', 'complete');
+      
+      
+      idx.tdGrid('', '', '', '', '', '', '', '', '', '', 'ing');
+            
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+// out: ../../publish/html/css/layout.css
+@import "basic.less";
+html, body {.height(100%);}
+body {.height(100%); .r_mp;}
+
+@font-face {
+  font-family: 'SpoqaHanSansRegular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/SpoqaHanSansRegular.ttf');
+  src: local('※'), url('../fonts/SpoqaHanSansRegular.woff2') format('woff2'), url('../fonts/SpoqaHanSansRegular.woff') format('woff');
+}
+
+
+// reset
+html {.height(100%);}
+body {
+  min-height:100%;
+  .r_mp;
+  font-family: 'SpoqaHanSansRegular';
+  .lh(1.2);
+  letter-spacing:-0.04em;
+  word-break: break-word;
+  word-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+a {text-decoration:none;}
+img, button {border:none;}
+input:focus, textarea:focus, select:focus {outline: none;}
+img {max-width:100%;}
+caption {font-size:0; text-indent:-9999px;}
+
+// skip navi
+.skip_navi {
+  .absolute; top:-30px; left:0; z-index:100; .fullWidth; .height(30px);
+  a {
+    .absolute; left:0; top:0;
+    .dp(block); .full; .bg_color(#222); .lh(30px); .align(center); .font(13px, #fff);
+    &:focus {top:30px;}
+  }
+}
+
+.header {.pos_tl(fixed,0,0); .fullWidth;  .bg_color(rgba(255,255,255,0.8)); border-bottom: 1px solid #dddddd; z-index: 20;}
+.header .inner_header {.m_auto(1080px); .height(100px); .flex; align-items: center; justify-content: space-between;}
+.header nav {.flex; align-items: center;}
+.header nav > ul  {.flex;}
+.header nav > ul > li.node1 {float:left;}
+.header nav > ul > li.node1 a {.flex; .font(18px,#222222,bold);}
+.header nav > ul > li + li {.m_left(40px);}
+.header .util_wrap  {.m_left(60px);}
+.header .util_wrap .btn_user {.block; width:40px; height:40px; .radius(50%); background:url(../images/dummy/icon_user.png) no-repeat center center #f6f6f6; font-size: 0;}
+
+.container {.p_top(160px);}
+
+.btn_text:hover {text-decoration: underline;}
+.text_red {color:red;}
+.text_blue {color:blue;}
+.full_width {width:100%;}
+.half_width {width:50%;}
+.align_right {.align(right);}
+.align_center {.align(center);}
+.align_left {.align(left);}

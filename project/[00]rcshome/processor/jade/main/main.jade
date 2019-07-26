@@ -1,0 +1,74 @@
+//output:../../../publish/html/main/main.html
+doctype html
+html(lang='ko')
+  include ../include/head.jade
+    <script src="https://unpkg.com/vue-agile"></script>
+    <script src="../../temp/jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vue-agile/dist/VueAgile.css">
+  body
+    include ../include/skipNavi.jade
+    a(href="https://marvelapp.com/4c590fh/screen/59197666" target="_blank") https://marvelapp.com/4c590fh/screen/59197666 
+    .box_content
+      a(href='javascript:void(0);').btn_ajax ajax test
+      .box_ajax
+      .box
+        input(type="text" style="width:200px; height:40px; border:1px solid #ddd;").input_text
+        .box_input
+    p.fl(style="font-size:20px;") 노토산스 라이트
+    p.fl(style="font-size:20px; font-weight:bold;") 노토산스 라이트 bold
+    p.fr(style="font-size:20px;") 노토산스 레귤러
+    p.fr(style="font-size:20px; font-weight:bold;") 노토산스 레귤러 bold
+    p.fm(style="font-size:20px;") 노토산스 미디움
+    p.fm(style="font-size:20px; font-weight:bold;") 노토산스 미디움 bold
+    div.slider_wrap
+      agile
+        div.slide(v-for="n in 6", :key="n", :class="`slide--${n}`")
+          h3 {{ n }}
+
+        template(slot="prevButton")
+          i.fas.fa-chevron-left
+
+        template(slot="nextButton")
+          i.fas.fa-chevron-right
+
+    
+    script.
+      $(function() {
+        $('.btn_ajax').on('click', function() {
+          $.ajax({
+            success: function(){
+              $('.box_ajax').append('<div class="box">ajax box</div>');
+            },
+            error: function(xhr, status, error) {
+              alert(error);
+            }  
+          });
+        });
+        $('.input_text').on('keyup', function() {
+          $('.box_input').html($('.input_text').val());
+        });
+      });
+      Vue.use(VueAgile)
+
+      app = new Vue({
+        el: '.slider_wrap',
+        components: {
+          agile: VueAgile,
+        }
+      })
+
+      //- app2 = new Vue ({
+      //-   el:'.slider_wrap_demo2',
+      //-   components: {
+      //-     agile: VueAgile,
+      //-   }
+      //- })
+      //- 
+      //- app3 = new Vue({
+      //- 	el:'.slider_wrap_demo3',
+      //- 	components: {
+      //- 		agile: VueAgile,
+      //- 	}
+      //- })
+
+      

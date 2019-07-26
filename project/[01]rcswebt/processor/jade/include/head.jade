@@ -1,0 +1,16 @@
+//output:../../../publish/html/include/head.html
+include jadeUtil.jade
+
+head
+  +pageName('RCS')
+  +metaCharset('utf-8')
+  +httpEquiv('X-UA-Compatible', 'ie=edge')
+  +metaName('description', '')
+  +linkRel('stylesheet', 'text/css', '../css/layout.css', 'all')
+  +linkRel('stylesheet', 'text/css', '../css/content.css', 'all')
+  +jsCall('text/javascript', '../js/vue.js')
+  +jsCall('text/javascript', '../js/vuejs-datepicker.js')
+  +jsCall('text/javascript', '../js/ko.js')
+  +jsCall('text/javascript', '../js/moment.js')
+  +jsCall('text/javascript', '../js/moment-with-locales.js')
+  

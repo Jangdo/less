@@ -1,0 +1,54 @@
+//output:../../../publish/html/main/main_c.html
+
+include ../include/jadeUtil.jade
+doctype html
+html(lang='ko')
+  include ../include/head.jade
+  +linkRel('stylesheet', 'text/css', '../css/main_c.css', 'all')
+  body
+    include ../include/skipNavi.jade
+    .header_wrap
+      header.header
+        h1.logo
+          a(href="javascript:void(0);") 로고
+        nav
+          ul.nav_list()
+            li
+              a(href="javascript:void(0);" @click="isHovering = !isHovering") 서비스 소개
+              transition
+                .sub_menu(v-show="isHovering")
+                  ul
+                    li: a(href="javascript:void(0);") RCS 서비스
+                    li: a(href="javascript:void(0);") RCS 서비스 특징
+                    li: a(href="javascript:void(0);") 상품안내
+                    li: a(href="javascript:void(0);") 사용 가이드
+            li
+              a(href="javascript:void(0);" @click="isHovering = !isHovering") 서비스 관리
+              transition
+                .sub_menu(v-show="isHovering")
+                  ul
+                    li: a(href="javascript:void(0);") RCS 서비스
+                    li: a(href="javascript:void(0);") RCS 서비스 특징
+                    li: a(href="javascript:void(0);") 상품안내
+                    li: a(href="javascript:void(0);") 사용 가이드
+            li
+              a(href="javascript:void(0);" @click="isHovering = !isHovering") 고객센터
+              transition
+                .sub_menu(v-show="isHovering")
+                  ul
+                    li: a(href="javascript:void(0);") RCS 서비스
+                    li: a(href="javascript:void(0);") RCS 서비스 특징
+                    li: a(href="javascript:void(0);") 상품안내
+                    li: a(href="javascript:void(0);") 사용 가이드
+          .gnb_wrap
+            a(href="javascript:void(0);") 문의하기
+            a(href="javascript:void(0);") 로그인
+
+
+    script.
+      var headerWrap = new Vue({
+        el: ".header_wrap",
+        data:{
+          isHovering: false,
+        },
+      });
